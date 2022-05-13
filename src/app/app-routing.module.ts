@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BlogEntriesComponent } from './components/blog-entries/blog-entries.component';
+import { BlogEntryComponent } from './components/blog-entry/blog-entry.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
@@ -18,6 +19,9 @@ const routes: Routes = [
     path: 'blog', component: BlogEntriesComponent
   },
   {
+    path: 'blog/entry/:entryId', component: BlogEntryComponent
+  },
+  {
     path: 'contact', component: ContactComponent
   },
   {
@@ -27,7 +31,7 @@ const routes: Routes = [
     path: 'security/register', component: RegisterComponent
   },
   {
-    path: '**', redirectTo: '', pathMatch: 'full'
+    path: '**', redirectTo: 'home', pathMatch: 'full'
   }
 ];
 

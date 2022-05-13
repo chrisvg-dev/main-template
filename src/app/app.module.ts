@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+
 import { MenuComponent } from './components/menu/menu.component';
 import { RegisterComponent } from './components/security/register/register.component';
 import { HomeComponent } from './components/home/home.component';
@@ -15,6 +18,14 @@ import { SkillsComponent } from './components/partials/skills/skills.component';
 import { SliderComponent } from './components/partials/slider/slider.component';
 import { CertificationsComponent } from './components/partials/certifications/certifications.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BlogModuleModule } from './blog-module/blog-module.module';
+import { BlogEntryComponent } from './components/blog-entry/blog-entry.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { SpinnerModule } from './shared/components/spinner/spinner.module';
+import { NotfoundComponent } from './shared/components/notfound/notfound.component';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,14 +39,22 @@ import { ContactComponent } from './components/contact/contact.component';
     SkillsComponent,
     SliderComponent,
     CertificationsComponent,
-    ContactComponent
+    ContactComponent,
+    BlogEntryComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BlogModuleModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    SpinnerModule
   ],
-  providers: [],
+  providers: [ 
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true } 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
