@@ -27,6 +27,7 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 import { AboutComponent } from './components/about/about.component';
+import { ConstructionComponent } from './shared/components/construction/construction.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AboutComponent } from './components/about/about.component';
     ContactComponent,
     BlogEntryComponent,
     NotfoundComponent,
-    AboutComponent
+    AboutComponent,
+    ConstructionComponent
   ],
   imports: [
     BrowserModule,

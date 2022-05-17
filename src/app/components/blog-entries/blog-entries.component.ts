@@ -12,6 +12,8 @@ export class BlogEntriesComponent implements OnInit {
   public isLoading: boolean = true;
   public everythingOk: boolean = false;
 
+  public hide: boolean = true;
+
   constructor(private blogService: BlogService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
