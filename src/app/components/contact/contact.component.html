@@ -1,47 +1,81 @@
 <app-menu></app-menu>
-<div class="px-4 py-5 my-5 text-center">
+<div class="px-4 py-5 my-0 text-center bg-dark">
   <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.flaticon.com/512/147/147140.png" alt="" width="150" >
-  <h1 class="display-5 fw-bold">Contacto</h1>
+  <h1 class="display-5 fw-bold text-white">Contacto</h1>
 
 </div>
-<div class="container px-4 py-5" id="icon-grid">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-0">
-      <div class="col d-flex align-items-start">
-        <i class="bi bi-at"></i>
-        <div>
-          <h4 class="fw-bold mb-0">Correo electrónico</h4>
-          <p>
-            cristianvg9692@gmail.com <br> cristianvg_sk1992@outlook.es
-             </p>
-        </div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-8 card card-body mb-5">
+      <h1>Escríbeme</h1>
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       </div>
-      <div class="col d-flex align-items-start">
-        <i class="bi bi-phone"></i>
-        <div>
-          <h4 class="fw-bold mb-0">Celular / Whatsapp</h4>
-          <p>+52 284 104 6682</p>
-        </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Tu mensaje:</label>
+        <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
       </div>
-      <div class="col d-flex align-items-start">
-        <i class="bi bi-linkedin"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <h4 class="fw-bold mb-0">Linkedin</h4>
-          <a target="_blank" href="https://www.linkedin.com/in/cristhianvg1/" class="btn btn-outline-secondary">Ver perfil</a>
-        </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+  
+    <div class="col-lg-4 col-sm-12 col-md-12">
+      <div class="list-group w-auto">
+        <label class="list-group-item d-flex gap-3 bg-light">
+          <span class="pt-1 form-checked-content">
+            <strong>Datos de contacto</strong>
+            <small class="d-block text-muted">
+              <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#list-check"/></svg>
+            </small>
+          </span>
+        </label>
+        <label class="list-group-item d-flex gap-3">
+          <i class="bi bi-envelope-check"></i>
+
+          <span class="pt-1 form-checked-content">
+            <strong>Email</strong>
+            <small class="d-block text-muted">
+              <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
+              cristianvg9692@gmail.com
+            </small>
+          </span>
+        </label>
+        <label class="list-group-item d-flex gap-3">
+          <i class="bi bi-phone"></i>
+
+          <span class="pt-1 form-checked-content">
+            <strong>Celular</strong>
+            <small class="d-block text-muted">
+              <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
+              +52 284 104 6682
+            </small>
+          </span>
+        </label>
+        <label class="list-group-item d-flex gap-3">
+          <i class="bi bi-linkedin"></i>
+          <span class="pt-1 form-checked-content">
+            <strong>Linkedin</strong>
+            <small class="d-block text-muted">
+              <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#alarm"/></svg>
+              <a class="btn btn-link" style="text-decoration: none;" href="https://www.linkedin.com/in/cristhianvg1/">cristhianvg1  </a>
+            </small>
+          </span>
+        </label>
+        <label class="list-group-item d-flex gap-3">
+          <i class="bi bi-github"></i>
+          <span class="pt-1 form-checked-content">
+            <strong>Perfil de Github</strong>
+            <small class="d-block text-muted">
+              <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#list-check"/></svg>
+              <a class="btn btn-link" style="text-decoration: none;" href="https://github.com/cristianvg1992">cristhianvg1992</a>
+            </small>
+          </span>
+        </label>
       </div>
-      <div class="col d-flex align-items-start">
-        <i class="bi bi-linkedin"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <h4 class="fw-bold mb-0">Github</h4>
-          <a target="_blank" href="https://github.com/cristianvg1992" class="btn btn-outline-secondary">Ver perfil</a>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <i class="bi bi-globe"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <h4 class="fw-bold mb-0">Sitio web</h4>
-          <a target="_blank" href="https://cristhianvg.com" class="btn btn-outline-secondary">Ver sitio web</a>
-        </div>
-      </div>
+      
     </div>
   </div>
+</div>
