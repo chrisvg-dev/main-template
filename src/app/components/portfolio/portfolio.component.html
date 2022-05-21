@@ -1,81 +1,65 @@
 <app-menu></app-menu>
-<app-construction *ngIf="hide" ></app-construction>  
-<main *ngIf="!hide">
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 class="display-4 fw-normal">Punny headline</h1>
-        <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
-        <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-      </div>
-      <div class="product-device shadow-sm d-none d-md-block"></div>
-      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+<!--<app-construction *ngIf="hide" ></app-construction>  -->
+<main *ngIf="hide">
+  <div class="px-4 py-5 my-5 text-center">
+    <img [src]="avatarImg" class="avatar" alt="">    
+    <h1 class="display-5 fw-bold">Portafolio personal</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">
+        Aqui podrán encontrar algunos módulos realizados en Spring Boot y otros lenguajes.</p>
+
     </div>
-  
+  </div>
+
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
       <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
         <div class="my-3 py-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
+          <h2 class="display-5">AWS SNS con Spring Boot </h2>
+          <p class="lead">Manejo de suscripciones SMS y Email (Solo API REST)</p>
         </div>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+          <a class="btn btn-link github py-5" href="https://github.com/cristianvg1992/aws-spring-sns">
+            <i class="bi bi-github"></i> Repositorio backend
+          </a>
+        </div>
       </div>
       <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
+          <h2 class="display-5">AWS S3 y JasperReports</h2>
+          <p class="lead">Aplicación para crear un reporte utilizando Java, Spring Boot y JasperReports, y AWS S3</p>
         </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+          <a class="btn btn-link github py-5 text-white" href="https://github.com/cristianvg1992/jasperreports_awss3_springboot">
+            <i class="bi bi-github text-white"></i> Repositorio backend
+          </a>
+        </div>
       </div>
     </div>
   
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
       <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
+          <h2 class="display-5">Prueba técnica de postulación</h2>
+          <p class="lead">Anexo archivos correspondientes a la prueba técnica de una postulación laboral</p>
         </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+          <a class="btn btn-link github py-4 text-white" href="https://github.com/cristianvg1992/aws-spring-sns">
+            <i class="bi bi-github text-white"></i> Repositorio backend
+          </a>
+          <a class="btn btn-link github text-white" href="https://github.com/cristianvg1992/aws-spring-sns">
+            <i class="bi bi-github text-white"></i> Repositorio frontend
+          </a>
+        </div>
       </div>
-      <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <!--<div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5">Another headline</h2>
           <p class="lead">And an even wittier subheading.</p>
         </div>
         <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
+      </div>-->
     </div>
   
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-  
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
+    
+    
   </main>

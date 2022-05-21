@@ -1,6 +1,17 @@
 .container {
     max-width: 960px;
   }
+
+  i {
+      font-size: 35px;
+      color: black;
+  }
+
+  .github {
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+  }
   
   /*
    * Custom translucent site header
@@ -67,3 +78,8 @@
       flex: 1;
     }
   }
+
+  .avatar {
+    width: 200px;
+    margin-bottom: 2.8em;
+}

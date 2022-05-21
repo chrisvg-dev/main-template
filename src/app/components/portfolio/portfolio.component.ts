@@ -9,7 +9,11 @@ export class PortfolioComponent implements OnInit {
 
   public hide: boolean = true;
 
-  constructor() { }
+  public avatarImg: string;
+
+  constructor() {
+    this.avatarImg = 'https://cdn-icons-png.flaticon.com/512/147/147140.png';
+   }
 
   ngOnInit(): void {
   }
