@@ -1,23 +1,31 @@
-<main class="form-signin w-100 m-auto">
-    <form>
-      <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-  
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-  
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-    </form>
-  </main>
+<div class="container" >
+  <h2>Iniciar sesión</h2>
+  <div class="col-md-4">
+      <form (ngSubmit)="login()" [formGroup]="registerForm">
+          <input type="text" formControlName="email" placeholder="Email" class="form-control">
+          <div class="col-md-5  "
+              *ngIf="registerForm.get('email')?.touched && 
+              registerForm.get('email')?.errors?.['required']" 
+              class="alert alert-danger">
+              Este campo es requerido
+          </div>
+          <div 
+              *ngIf="registerForm.get('email')?.touched && 
+              registerForm.get('email')?.errors?.['email']" 
+              class="alert alert-danger">
+              El formato de correo no es valido
+          </div>
+      
+          <input type="password" formControlName="password" placeholder="Password" class="form-control">
+          <div 
+              *ngIf="registerForm.get('password')?.touched && 
+              registerForm.get('password')?.errors?.['required']" 
+              class="alert alert-danger">
+              Este campo es requerido
+          </div>
+      
+          <input type="submit" class="btn btn-secondary btn-lg" [disabled]="registerForm.invalid" />
+      </form>
+  </div>
+
+</div>

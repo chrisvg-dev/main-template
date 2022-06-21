@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/Auth.service';
 
 @Component({
@@ -6,19 +7,18 @@ import { AuthService } from '../services/Auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent  {
+export class RegisterComponent implements OnInit {
+  public registerForm!: FormGroup;
 
-  constructor(private auth: AuthService) {}
+  constructor(private readonly fb: FormBuilder, private auth: AuthService) {
+
+  }
+  ngOnInit(): void {
+    this.registerForm = this.initForm();
+  }
 
   public register(): void {
-    const data = {
-        "name": "ESMERALDA",
-        "lastName": "GARCIA",
-        "email": "mi.madre@gmail.com",
-        "password": "Pa28d8896f9123",
-        "rol": ["reader", "writer", "iam"]
-    };
-
+    const data = this.registerForm.value;
     this.auth.register(data).subscribe(
       {
         next: resp => console.log(resp),
@@ -26,6 +26,15 @@ export class RegisterComponent  {
         complete: () => console.log('Sucecss')
       }
     );
+  }
+
+  public initForm(): FormGroup {
+    return this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(10)]]
+    });
   }
 
 }

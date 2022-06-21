@@ -1,1 +1,44 @@
-<button (click)="register()">Click prro</button>
+<h2>Registrar usuario</h2>
+<div class="col-md-6">
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
+    
+        <input type="text" formControlName="name" placeholder="Name" class="form-control">
+        <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']" class="alert alert-danger">
+            Este campo es requerido
+        </div>  
+        <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['minLength']" class="alert alert-danger">
+            Este campo es requerido csdacasdc
+        </div>    
+    
+    
+    
+        <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
+        <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']" class="alert alert-danger">
+            Este campo es requerido
+        </div>
+    
+        <input type="text" formControlName="email" placeholder="Email" class="form-control">
+        <div 
+            *ngIf="registerForm.get('email')?.touched && 
+            registerForm.get('email')?.errors?.['required']" 
+            class="alert alert-danger">
+            Este campo es requerido
+        </div>
+        <div 
+            *ngIf="registerForm.get('email')?.touched && 
+            registerForm.get('email')?.errors?.['email']" 
+            class="alert alert-danger">
+            El formato de correo no es valido
+        </div>
+    
+        <input type="password" formControlName="password" placeholder="Password" class="form-control">
+        <div 
+            *ngIf="registerForm.get('password')?.touched && 
+            registerForm.get('password')?.errors?.['required']" 
+            class="alert alert-danger">
+            Este campo es requerido
+        </div>
+    
+        <input type="submit" class="btn btn-secondary btn-lg" [disabled]="registerForm.invalid" />
+    </form>
+</div>
