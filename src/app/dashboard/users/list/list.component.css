@@ -1,0 +1,11 @@
+.delete {
+    cursor: pointer;
+    margin-right: 1rem;
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}
+
+.roles {
+    list-style: none;
+}

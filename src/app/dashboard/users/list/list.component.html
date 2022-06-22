@@ -1,0 +1,31 @@
+<table class="table table-striped">
+    <thead class="thead-dark table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Estado</th>
+            <th>Created</th>
+            <th>Rol</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td> {{ user.name }} </td>
+            <td> {{ user.lastName }} </td>
+            <td> {{ user.email }} </td>
+            <td> {{ user.status }} </td>
+            <td> {{ user.created }} </td>
+            <td> 
+                <ul class="roles list-group list-group-flush" *ngFor="let item of user.rol">
+                    <li><a class="delete">x</a> {{ item.name }} </li>
+                </ul>
+            </td>
+            <td>
+                <button class="btn btn-warning btn-sm">Editar</button>&nbsp;
+                <button class="btn btn-danger btn-sm" (click)="emitirEvento(user.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

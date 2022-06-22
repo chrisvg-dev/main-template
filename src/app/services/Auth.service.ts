@@ -14,4 +14,12 @@ export class AuthService {
   public register( user: any ) : Observable<any>{
     return this.http.post(this.URL, user);
   }
+
+  public findAll( ) : Observable<any>{
+    return this.http.get(this.URL);
+  }
+
+  public deleteById( id: number ) : Observable<any>{
+    return this.http.delete(this.URL + "/delete/" + id);
+  }
 }

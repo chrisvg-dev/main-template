@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'home', component: HomeComponent },
   { path: 'auth', loadChildren: () => import('./admin/admin.module').then(x => x.AdminModule) },
+  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(x => x.DashboardModule) },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

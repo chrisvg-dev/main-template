@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-
 import { AdminModule } from './admin/admin.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -32,6 +31,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ConstructionComponent } from './shared/components/construction/construction.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +54,7 @@ import { ConstructionComponent } from './shared/components/construction/construc
     BrowserModule,
     AppRoutingModule,
     AdminModule,
+    DashboardModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot(),

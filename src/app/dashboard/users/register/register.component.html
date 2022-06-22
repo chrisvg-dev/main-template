@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-md-12 users-register">
+        <form (ngSubmit)="register()" [formGroup]="registerForm" class="col-md-12">
+        
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="text" formControlName="name" placeholder="Name" class="form-control">
+                
+                    <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']" class="alert alert-danger">
+                        Este campo es requerido
+                    </div>  
+                    <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['minLength']" class="alert alert-danger">
+                        Este campo es requerido csdacasdc
+                    </div>    
+                        
+                    <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
+                    <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']" class="alert alert-danger">
+                        Este campo es requerido
+                    </div>
+                
+                    <input type="text" formControlName="email" placeholder="Email" class="form-control">
+                    <div 
+                        *ngIf="registerForm.get('email')?.touched && 
+                        registerForm.get('email')?.errors?.['required']" 
+                        class="alert alert-danger">
+                        Este campo es requerido
+                    </div>
+                    <div 
+                        *ngIf="registerForm.get('email')?.touched && 
+                        registerForm.get('email')?.errors?.['email']" 
+                        class="alert alert-danger">
+                        El formato de correo no es valido
+                    </div>
+                
+                    <input type="password" formControlName="password" placeholder="Password" class="form-control">
+                    <div 
+                        *ngIf="registerForm.get('password')?.touched && 
+                        registerForm.get('password')?.errors?.['required']" 
+                        class="alert alert-danger">
+                        Este campo es requerido
+                    </div>
+                    <input type="submit" value="Guardar" class="btn btn-secondary" [disabled]="registerForm.invalid" />
+                </div>
+                <div class="col-md-4">                    
+                    <div *ngFor="let rol of roles" class="list-group-item list-group-item-action py-1 lh-tight">
+                        <div class="form-check">
+                            <input                         
+                                formArrayName="rol"
+                                type="checkbox" 
+                                name="rol" 
+                                [value]="rol.name" 
+                                (change)="onCheckboxChange($event)" />&nbsp;
+                            <label for="rol">  <strong class="mb-1">{{ rol.name }}</strong> </label>
+                            <div class="col-10 mb-1 small"> {{ rol.roleDescription }} </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
