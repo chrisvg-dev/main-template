@@ -23,6 +23,8 @@
               class="alert alert-danger">
               Este campo es requerido
           </div>
+
+          <input type="hidden" formControlName="grant_type" value="password" />
       
           <input type="submit" class="btn btn-secondary btn-lg" [disabled]="registerForm.invalid" />
       </form>

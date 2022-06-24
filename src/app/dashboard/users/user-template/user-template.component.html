@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Usuarios</h1>
+    <h1 class="mb-4">Usuarios</h1>
     <register (emitter)="findAll()"></register>
     <hr>
     <user-list [data]="users" (emitter)="eliminarUsuario($event)"></user-list>

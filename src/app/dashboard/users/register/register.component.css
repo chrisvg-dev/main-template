@@ -1,5 +1,10 @@
-input {
+.control {
     margin-bottom: 0.5em;;
+}
+
+span.badge {
+    font-family: arial;
+    width: 50%;
 }
 
 .roles {

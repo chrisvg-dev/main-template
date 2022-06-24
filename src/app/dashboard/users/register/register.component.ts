@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/Auth.service';
 import { RolServiceService } from 'src/app/services/rol-service.service';
 
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder, 
     private auth: AuthService,
-    private rolService: RolServiceService
+    private rolService: RolServiceService,
+    private toastr: ToastrService
     ) {
       this.registerForm = this.initForm(); 
   }
@@ -37,9 +39,14 @@ export class RegisterComponent implements OnInit {
     console.log(data);
     this.auth.register(data).subscribe({
       next: resp => {
-        console.log(resp);
+        if (resp.status === 'CREATED') {
+          this.toastr.success('User created', 'Success message');
+        }
       },
-      error: err => console.log(err),
+      error: err => {
+        console.log(err);
+        this.toastr.error(err.error.message, `Error code ${err.status}`);
+      },
       complete: () => {
         console.log('Finished');
         this.emitirEvento();

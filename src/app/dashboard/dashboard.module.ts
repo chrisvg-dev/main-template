@@ -8,6 +8,8 @@ import { RegisterComponent } from './users/register/register.component';
 import { UserTemplateComponent } from './users/user-template/user-template.component';
 import { ListComponent } from './users/list/list.component';
 import { RolesComponent } from './users/roles/roles.component';
+import { BlogComponent } from './blog/blog.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { RolesComponent } from './users/roles/roles.component';
        RegisterComponent,
        UserTemplateComponent,
        ListComponent,
-       RolesComponent
+       RolesComponent,
+       BlogComponent,
+       PortfolioComponent
   ],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, DashboardRoutingModule

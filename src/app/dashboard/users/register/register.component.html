@@ -1,43 +1,36 @@
 <div class="row">
     <div class="col-md-12 users-register">
-        <form (ngSubmit)="register()" [formGroup]="registerForm" class="col-md-12">
+        <form (ngSubmit)="register()" [formGroup]="registerForm" class="row g-3 needs-validation">
         
             <div class="row">
                 <div class="col-md-8">
-                    <input type="text" formControlName="name" placeholder="Name" class="form-control">
-                
-                    <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']" class="alert alert-danger">
-                        Este campo es requerido
-                    </div>  
-                    <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['minLength']" class="alert alert-danger">
-                        Este campo es requerido csdacasdc
-                    </div>    
-                        
-                    <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
-                    <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']" class="alert alert-danger">
-                        Este campo es requerido
+                    
+                    <div class="control">
+                        <input type="text" formControlName="name" placeholder="Name" class="form-control">
+                        <span class="badge bg-danger" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']">Campo requerido</span>
                     </div>
-                
-                    <input type="text" formControlName="email" placeholder="Email" class="form-control">
-                    <div 
-                        *ngIf="registerForm.get('email')?.touched && 
-                        registerForm.get('email')?.errors?.['required']" 
-                        class="alert alert-danger">
-                        Este campo es requerido
+
+                    <div class="control">
+                        <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
+                        <span class="badge bg-danger" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']">Campo requerido</span>
                     </div>
-                    <div 
-                        *ngIf="registerForm.get('email')?.touched && 
-                        registerForm.get('email')?.errors?.['email']" 
-                        class="alert alert-danger">
-                        El formato de correo no es valido
+
+                    <div class="control">
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            <input formControlName="email" placeholder="Email" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            <div class="invalid-feedback">
+                              Please choose a username.
+                            </div>
+                        </div>
+                        <span class="badge bg-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Campo requerido</span>
+                        <span class="badge bg-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']">El formato de email no es válido</span>
                     </div>
-                
-                    <input type="password" formControlName="password" placeholder="Password" class="form-control">
-                    <div 
-                        *ngIf="registerForm.get('password')?.touched && 
-                        registerForm.get('password')?.errors?.['required']" 
-                        class="alert alert-danger">
-                        Este campo es requerido
+
+                    <div class="control">
+                        <input type="password" formControlName="password" placeholder="Password" class="form-control">
+                        <span class="badge bg-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Campo requerido</span>
+
                     </div>
                     <input type="submit" value="Guardar" class="btn btn-secondary" [disabled]="registerForm.invalid" />
                 </div>

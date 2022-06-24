@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/Auth.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { AuthService } from 'src/app/services/Auth.service';
 export class UserTemplateComponent implements OnInit {
   public users: any = [];
 
-  constructor(private auth: AuthService) { }
+  constructor(
+    private auth: AuthService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -32,7 +36,7 @@ export class UserTemplateComponent implements OnInit {
     if (confirm('Seguro que deseas borrar el registro?')) {
         this.auth.deleteById(event.userId).subscribe({
           next: resp => {
-            alert(resp.message);
+            this.toastr.warning(resp.message);
           },
           error: err => console.log(err),
           complete: () => this.findAll(),
