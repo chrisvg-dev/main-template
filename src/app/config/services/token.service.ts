@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-const TOKEN_KEY = 'AuthToken';
+const TOKEN_KEY = 'access_token';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,7 @@ export class TokenService {
   }
 
   public getToken(): string {
-    console.log(sessionStorage.getItem(TOKEN_KEY)!);
-    return sessionStorage.getItem(TOKEN_KEY)! //! esto quiere decir que yo se lo que hago angula
+    return sessionStorage.getItem(TOKEN_KEY)! //! esto quiere decir que yo se lo que hago angular
   }
 
   public isLogged(): boolean {
@@ -45,8 +44,7 @@ export class TokenService {
     const payload = token.split('.')[1];
     const payloadDecoded = atob(payload); // DECODIFICA LA CADENA USANDO LA CODIFICACIÓN BASE 64
     const values = JSON.parse(payloadDecoded)
-    const username = values.sub;
-    return username;
+    return values.sub;
   }
 
   public getIsAdmin(): boolean {
@@ -64,9 +62,9 @@ export class TokenService {
     const payload = token.split('.')[1];
     const payloadDecoded = atob(payload); // DECODIFICA LA CADENA USANDO LA CODIFICACIÓN BASE 64
     const values = JSON.parse(payloadDecoded);
-    console.log(values);
-    const roles = values.roles;
-    if (roles.indexOf('ROLE_ADMIN') < 0) {
+    const roles = values.authorities;
+
+    if (roles.indexOf('ROLE_ROOT') < 0) {
       return false;
     }
     return true;
@@ -74,6 +72,6 @@ export class TokenService {
 
   public logOut(): void {
     window.sessionStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['auth']);
   }
 }

@@ -29,6 +29,7 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
 import { SpinnerInterceptor } from './config/interceptor/spinner.interceptor';
 import { AboutComponent } from './components/about/about.component';
 import { ConstructionComponent } from './shared/components/construction/construction.component';
+import { appInterceptorProvider } from './config/interceptor/app-interceptor.service';
 
 
 
@@ -62,7 +63,8 @@ import { ConstructionComponent } from './shared/components/construction/construc
   ],
   providers: [ 
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    appInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

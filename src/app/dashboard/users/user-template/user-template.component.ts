@@ -14,7 +14,7 @@ export class UserTemplateComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private toastr: ToastrService
-    ) { console.log(sessionStorage.getItem('access_token')); }
+    ) {  }
 
   ngOnInit(): void {
     this.findAll();

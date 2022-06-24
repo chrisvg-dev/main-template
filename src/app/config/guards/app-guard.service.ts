@@ -16,7 +16,7 @@ export class AppGuardService implements CanActivate {
     this.realRol = this.tokenService.getIsAdmin() ? 'admin' : 'user';
 
     if (!this.tokenService.isLogged() || expectedRol.indexOf(this.realRol) < 0) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/auth']);
       return false;
     }
     return true;

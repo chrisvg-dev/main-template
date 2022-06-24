@@ -6,6 +6,8 @@ import { BlogEntryComponent } from './components/blog-entry/blog-entry.component
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { AppGuardService } from './config/guards/app-guard.service';
+import { LoginGuardService } from './config/guards/login-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,8 +17,23 @@ const routes: Routes = [
   { path: 'blog/entry/:entryId', component: BlogEntryComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'auth', loadChildren: () => import('./auth/admin.module').then(x => x.AdminModule) },
-  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(x => x.DashboardModule) },
+  
+  { 
+    path: 'auth', 
+    loadChildren: () => import('./auth/admin.module').then(x => x.AdminModule),
+    canActivate: [ LoginGuardService ] 
+  },
+
+  { 
+    path: 'dashboard', 
+    loadChildren: () => import('./dashboard/dashboard.module').then(x => x.DashboardModule),
+    canActivate: [ AppGuardService ],
+    data: {
+      expectedRol: ['admin']
+    }
+  },
+
+
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

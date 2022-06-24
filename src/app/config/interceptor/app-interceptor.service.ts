@@ -14,18 +14,20 @@ export class AppInterceptorService {
     let intReq = req;
     const token = this.tokenService.getToken();
 
-    if (token!= null) {
-      intReq = req.clone({headers: req.headers.set('Authorization', 'Bearer ' + token)});
-    }
+    if (token != null) {
+      intReq = req.clone({
+        headers: req.headers
+                  .set('Authorization', 'Bearer ' + token)
+      });
+    } 
     return next.handle(intReq);
-
   }
 }
 
 /**
  * ESTA CONSTANTE DEBE IMPORTARSE DESDE LOS MÓDULOS DE ANGULAR app.module.ts
  */
-export const interceptorProvider = [
+export const appInterceptorProvider = [
   {
     provide: HTTP_INTERCEPTORS, 
     useClass: AppInterceptorService,

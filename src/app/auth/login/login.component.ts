@@ -35,19 +35,14 @@ export class LoginComponent implements OnInit {
 
     console.log(body.toString());
 
-    this.auth.login(body.toString()).subscribe(
+    this.auth.login( body.toString() ).subscribe(
       {
         next: resp => {
-          let token = resp;
-          sessionStorage.setItem('access_token', token.access_token);
-          sessionStorage.setItem('name', token.name);
-          sessionStorage.setItem('lastName', token.lastName);
-
-          this.tokenService.setToken( token.access_token );
+          this.tokenService.setToken( resp.access_token );
           this.router.navigate(['/dashboard']);
         },
-        error: err => this.toastr.error(err.error.error_description, 'Error code ' + err.status) ,
-        complete: () => console.log('Sucecss')
+        error: err => this.toastr.error(err.error, 'Error code ' + err.status) ,
+        complete: () => console.log('Success')
       }
     );
   }

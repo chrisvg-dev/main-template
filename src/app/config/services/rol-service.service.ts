@@ -1,6 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+
+const credentials = btoa('angularapp' + ':' + 'Secret12345@');
+const HTTP_HEADERS = new HttpHeaders( {  
+  'Content-Type': 'application/x-www-form-urlencoded',
+  'Authorization': 'Basic ' + credentials 
+});
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +18,9 @@ export class RolServiceService {
   constructor( private http: HttpClient ) {}
 
   public findAll( ) : Observable<any>{
-    return this.http.get(this.URL);
+    return this.http.get(this.URL, 
+      {
+        headers: HTTP_HEADERS
+      });
   }
 }
