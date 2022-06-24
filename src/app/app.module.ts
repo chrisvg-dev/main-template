@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-import { AdminModule } from './admin/admin.module';
+import { AdminModule } from './auth/admin.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -26,7 +26,7 @@ import { BlogEntryComponent } from './components/blog-entry/blog-entry.component
 import { SpinnerModule } from './shared/components/spinner/spinner.module';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 
-import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
+import { SpinnerInterceptor } from './config/interceptor/spinner.interceptor';
 import { AboutComponent } from './components/about/about.component';
 import { ConstructionComponent } from './shared/components/construction/construction.component';
 

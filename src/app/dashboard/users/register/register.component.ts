@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/Auth.service';
-import { RolServiceService } from 'src/app/services/rol-service.service';
+import { AuthService } from 'src/app/config/services/Auth.service';
+import { RolServiceService } from 'src/app/config/services/rol-service.service';
 
 @Component({
   selector: 'register',

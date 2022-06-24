@@ -1,8 +1,10 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/Auth.service';
+import { AuthService } from 'src/app/config/services/Auth.service';
+import { TokenService } from 'src/app/config/services/token.service';
 
 @Component({
   selector: 'login',
@@ -15,7 +17,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder, 
     private auth: AuthService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private tokenService: TokenService,
+    private router: Router) {
 
   }
   ngOnInit(): void {
@@ -33,7 +37,15 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(body.toString()).subscribe(
       {
-        next: resp => console.log(resp),
+        next: resp => {
+          let token = resp;
+          sessionStorage.setItem('access_token', token.access_token);
+          sessionStorage.setItem('name', token.name);
+          sessionStorage.setItem('lastName', token.lastName);
+
+          this.tokenService.setToken( token.access_token );
+          this.router.navigate(['/dashboard']);
+        },
         error: err => this.toastr.error(err.error.error_description, 'Error code ' + err.status) ,
         complete: () => console.log('Sucecss')
       }

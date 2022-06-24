@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/Auth.service';
+import { AuthService } from 'src/app/config/services/Auth.service';
 
 @Component({
   selector: 'app-user-template',
@@ -9,17 +9,17 @@ import { AuthService } from 'src/app/services/Auth.service';
 })
 export class UserTemplateComponent implements OnInit {
   public users: any = [];
+  public jwt: string = '';
 
   constructor(
     private auth: AuthService,
     private toastr: ToastrService
-    ) { }
+    ) { console.log(sessionStorage.getItem('access_token')); }
 
   ngOnInit(): void {
     this.findAll();
+    
   }
-
-  
 
   public findAll(): void {
     this.auth.findAll().subscribe({

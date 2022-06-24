@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { BlogService } from 'src/app/services/blog.service';
+import { BlogService } from 'src/app/config/services/blog.service';
 
 @Component({
   selector: 'app-blog-entries',
